@@ -94,11 +94,12 @@ def update_graphs(pais_v, comparacion_por_v, years_chosen):
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
     if comparacion_por_v == 'Brecha mujeres - hombres':
-        fig_line = px.line(dff, x='ano', y='valor', color='pais', error_y='valor_errorestandar',
+        fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
         symbol= 'desagregacion',
         labels=dict(ano="Año", valor="", pais="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     else:
-        fig_line = px.bar(dff, x='ano', y='valor', color='pais', pattern_shape='desagregacion', pattern_shape_sequence=["", "x", "."], barmode="group",
+        fig_line = px.line(dff, x='ano', y='valor', color='pais2',
+        line_dash= 'desagregacion', symbol= 'desagregacion',
         labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category', categoryorder='category ascending').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     fig_line.update_layout(
         xaxis=dict( 
